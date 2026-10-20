@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087fce">
+  <meta name="description" content="บริษัทจำหน่ายน้ำดื่ม น้ำดื่มบรรจุขวดและน้ำดื่มบรรจุถัง ติดต่อสั่งซื้อ 084-456-2954">
+  <title>น้ำดื่มสะอาด | สดชื่นทุกวัน</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #087fce;
+      --deep-blue: #075985;
+      --light-blue: #eaf7ff;
+      --cyan: #51c8ef;
+      --text: #17334a;
+      --muted: #63798b;
+      --white: #fff;
+      --shadow: 0 15px 40px rgba(7, 89, 133, .10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      font-family: 'Kanit', sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+      background: #fff;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(1140px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(7,89,133,.07);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--deep-blue);
+      font-size: 21px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      background: var(--light-blue);
+      border-radius: 15px;
+      font-size: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-call, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 23px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-weight: 500;
+      transition: .25s;
+    }
+
+    .nav-call, .btn-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 7px 18px rgba(8,127,206,.2);
+    }
+
+    .nav-call:hover, .btn-primary:hover {
+      background: var(--deep-blue);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 85% 35%, #c8efff 0, transparent 35%),
+        linear-gradient(120deg, #f1faff, #fff 70%);
+      padding: 90px 0 85px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: #dff4ff;
+      color: var(--deep-blue);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 59px);
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -.5px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .hero p {
+      margin: 22px 0 30px;
+      max-width: 510px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn-outline {
+      border: 1px solid #b7dced;
+      color: var(--deep-blue);
+      background: white;
+    }
+
+    .btn-outline:hover { background: var(--light-blue); }
+
+    .hero-art {
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .water-circle {
+      width: min(360px, 100%);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #dff6ff, #b8eaff);
+      box-shadow: inset -15px -15px 35px rgba(8,127,206,.08);
+      position: relative;
+    }
+
+    .bottle-scene {
+      display: flex;
+      align-items: end;
+      gap: 15px;
+      filter: drop-shadow(0 18px 14px rgba(7,89,133,.13));
+    }
+
+    .bottle {
+      width: 94px;
+      height: 245px;
+      position: relative;
+      border-radius: 19px 19px 24px 24px;
+      background: linear-gradient(90deg, #a4e7ff, #f5fdff 30%, #8edbfa 80%, #d5f6ff);
+      border: 2px solid rgba(255,255,255,.9);
+      transform: rotate(-5deg);
+    }
+
+    .bottle::before {
+      content: '';
+      position: absolute;
+      top: -32px;
+      left: 29px;
+      width: 32px;
+      height: 36px;
+      border-radius: 7px 7px 2px 2px;
+      background: #31a9e5;
+      border: 2px solid white;
+    }
+
+    .bottle::after {
+      content: 'PURE\\A WATER';
+      white-space: pre;
+      position: absolute;
+      left: 5px;
+      right: 5px;
+      top: 95px;
+      padding: 10px 0;
+      text-align: center;
+      font: 600 13px/1.8 sans-serif;
+      letter-spacing: 1px;
+      color: #087fce;
+      background: rgba(255,255,255,.88);
+      border-radius: 7px;
+    }
+
+    .water-jug {
+      width: 143px;
+      height: 205px;
+      position: relative;
+      border: 3px solid rgba(255,255,255,.95);
+      border-radius: 32px 32px 24px 24px;
+      background: linear-gradient(90deg, #71c9f0, #e5f9ff 28%, #8dd8f7 75%, #c6efff);
+    }
+
+    .water-jug::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 47px;
+      width: 45px;
+      height: 25px;
+      background: #0788ce;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .water-jug::after {
+      content: 'น้ำดื่ม';
+      position: absolute;
+      top: 75px;
+      left: 12px;
+      right: 12px;
+      padding: 9px 0;
+      border-radius: 9px;
+      text-align: center;
+      color: #087fce;
+      background: rgba(255,255,255,.88);
+      font-weight: 500;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.8);
+    }
+
+    .bubble.one { width: 24px; height: 24px; top: 42px; left: 38px; }
+    .bubble.two { width: 13px; height: 13px; bottom: 50px; right: 35px; }
+    .bubble.three { width: 17px; height: 17px; top: 100px; right: 20px; }
+
+    section { padding: 85px 0; }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading .eyebrow { margin-bottom: 12px; }
+
+    h2 {
+      font-size: clamp(29px, 4vw, 39px);
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .section-heading p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-visual {
+      min-height: 320px;
+      background: linear-gradient(135deg, #e4f7ff, #f3fbff);
+      border-radius: 30px;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+    }
+
+    .about-visual .big-drop {
+      font-size: 130px;
+      line-height: 1.5;
+      filter: drop-shadow(0 14px 15px rgba(8,127,206,.17));
+    }
+
+    .about-copy h2 { margin-bottom: 18px; }
+    .about-copy p { color: var(--muted); margin-bottom: 14px; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 27px;
+      height: 27px;
+      background: #dff7eb;
+      color: #15945c;
+      border-radius: 50%;
+      font-weight: 600;
+    }
+
+    .products { background: #f4faff; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .product-card {
+      overflow: hidden;
+      background: white;
+      border-radius: 25px;
+      border: 1px solid #e5f0f7;
+      box-shadow: var(--shadow);
+      transition: .3s;
+    }
+
+    .product-card:hover { transform: translateY(-6px); }
+
+    .product-picture {
+      height: 250px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #e4f7ff, #f5fcff);
+    }
+
+    .product-picture .bottle-scene { transform: scale(.77); }
+    .product-picture .water-circle { width: 210px; }
+    .product-picture .water-jug { transform: scale(.85); }
+
+    .product-info { padding: 25px 27px 29px; }
+    .product-info h3 { font-size: 23px; margin-bottom: 8px; }
+    .product-info p { color: var(--muted); font-size: 15px; margin-bottom: 19px; }
+
+    .product-info .btn {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+
+    .contact {
+      background: linear-gradient(120deg, #087fce, #075985);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .contact .eyebrow {
+      color: white;
+      background: rgba(255,255,255,.15);
+    }
+
+    .contact h2 { font-size: clamp(30px, 4vw, 42px); }
+    .contact p { margin-top: 12px; color: #d9f2ff; }
+
+    .phone-number {
+      display: block;
+      font-size: clamp(27px, 4vw, 38px);
+      font-weight: 600;
+      margin: 6px 0 18px;
+      letter-spacing: 1px;
+    }
+
+    .contact .btn {
+      background: white;
+      color: var(--deep-blue);
+      white-space: nowrap;
+    }
+
+    .contact .btn:hover { background: #eaf7ff; }
+
+    footer {
+      padding: 24px 0;
+      background: #063b5a;
+      color: #d7eaf5;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer p + p { opacity: .7; font-size: 12px; margin-top: 4px; }
+
+    .floating-call {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      right: 18px;
+      bottom: 18px;
+      padding: 13px 20px;
+      border-radius: 50px;
+      background: #087fce;
+      color: white;
+      box-shadow: 0 5px 25px rgba(7,89,133,.3);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links { gap: 14px; font-size: 14px; }
+      .nav-call { display: none; }
+      .hero { padding: 55px 0; }
+      .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+      .hero-content { text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .hero-art { min-height: 310px; }
+      .water-circle { width: 290px; }
+      .bottle-scene { transform: scale(.83); }
+      .about-grid { gap: 30px; }
+      .contact-inner { flex-direction: column; align-items: flex-start; }
+      section { padding: 65px 0; }
+    }
+
+    @media (max-width: 560px) {
+      nav { min-height: 68px; flex-wrap: wrap; padding: 10px 0; }
+      .brand { font-size: 18px; }
+      .brand-icon { width: 39px; height: 39px; }
+      .nav-links { width: 100%; justify-content: space-between; gap: 8px; padding: 2px 0 7px; }
+      .nav-links a { font-size: 13px; }
+      .hero { padding: 45px 0 35px; }
+      h1 { font-size: 36px; }
+      .hero p { font-size: 15px; }
+      .hero-art { min-height: 260px; }
+      .water-circle { width: 245px; }
+      .bottle-scene { transform: scale(.7); }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { min-height: 230px; }
+      .about-visual .big-drop { font-size: 95px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-picture { height: 220px; }
+      .features { gap: 13px 8px; }
+      .feature { font-size: 13px; }
+      .floating-call { display: inline-flex; align-items: center; gap: 8px; }
+      footer { padding-bottom: 80px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container" aria-label="เมนูหลัก">
+      <a class="brand" href="#home" aria-label="หน้าแรก">
+        <span class="brand-icon">💧</span>
+        <span>น้ำดื่มสะอาด</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home">หน้าแรก</a></li>
+        <li><a href="#about">ประวัติบริษัท</a></li>
+        <li><a href="#products">สินค้า</a></li>
+        <li><a href="#contact">ติดต่อเรา</a></li>
+      </ul>
+
+      <a class="nav-call" href="tel:0844562954">☎ โทรสั่งซื้อ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">💧 เติมความสดชื่นให้ทุกวัน</span>
+          <h1>น้ำดื่มคุณภาพ<br><span>สดชื่น สะอาด</span><br>เพื่อทุกคน</h1>
+          <p>
+            จำหน่ายน้ำดื่มบรรจุขวดและน้ำดื่มบรรจุถัง
+            สำหรับบ้าน ร้านค้า สำนักงาน และธุรกิจของคุณ
+            สอบถามรายละเอียดและสั่งซื้อได้เลย
+          </p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#products">ดูสินค้าของเรา →</a>
+            <a class="btn btn-outline" href="tel:0844562954">☎ 084-456-2954</a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="ภาพประกอบผลิตภัณฑ์น้ำดื่ม">
+          <div class="water-circle">
+            <span class="bubble one"></span>
+            <span class="bubble two"></span>
+            <span class="bubble three"></span>
+            <div class="bottle-scene">
+              <div class="bottle"></div>
+              <div class="water-jug"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-visual">
+          <div class="big-drop" aria-hidden="true">💧</div>
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">ABOUT US</span>
+          <h2>ประวัติบริษัท</h2>
+          <p>
+            บริษัท น้ำดื่มสะอาด มุ่งเน้นการจำหน่ายน้ำดื่ม
+            เพื่อตอบสนองความต้องการของลูกค้าทั้งครัวเรือน
+            ร้านค้า สำนักงาน และหน่วยงานต่าง ๆ
+          </p>
+          <p>
+            เราให้ความสำคัญกับการบริการ ความสะดวกในการสั่งซื้อ
+            และการดูแลลูกค้า เพื่อสร้างความประทับใจในทุกครั้งที่ใช้บริการ
+          </p>
+          <div class="features">
+            <div class="feature"><span class="check">✓</span> น้ำดื่มบรรจุขวด</div>
+            <div class="feature"><span class="check">✓</span> น้ำดื่มบรรจุถัง</div>
+            <div class="feature"><span class="check">✓</span> ติดต่อสั่งซื้อสะดวก</div>
+            <div class="feature"><span class="check">✓</span> บริการลูกค้า</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">OUR PRODUCTS</span>
+          <h2>สินค้าของเรา</h2>
+          <p>เลือกผลิตภัณฑ์น้ำดื่มที่เหมาะกับความต้องการของคุณ</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-picture">
+              <div class="bottle-scene">
+                <div class="bottle"></div>
+                <div class="bottle" style="transform:rotate(5deg) scale(.85);"></div>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>น้ำดื่มบรรจุขวด</h3>
+              <p>เหมาะสำหรับดื่มในชีวิตประจำวัน งานประชุม ร้านค้า และกิจกรรมต่าง ๆ</p>
+              <a class="btn btn-primary"
+                 href="tel:0844562954?subject=สอบถามน้ำดื่มบรรจุขวด">
+                ☎ สอบถามราคา
+              </a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-picture">
+              <div class="water-circle">
+                <div class="water-jug"></div>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3>น้ำดื่มบรรจุถัง</h3>
+              <p>เหมาะสำหรับครัวเรือน สำนักงาน ร้านค้า และผู้ที่ต้องการน้ำดื่มสำหรับใช้งานเป็นประจำ</p>
+              <a class="btn btn-primary" href="tel:0844562954">☎ สอบถามราคา</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <span class="eyebrow">CONTACT US</span>
+          <h2>สนใจสั่งซื้อน้ำดื่ม?</h2>
+          <p>ติดต่อสอบถามราคา รายละเอียดสินค้า และบริการได้โดยตรง</p>
+        </div>
+        <div>
+          <span style="font-size:15px;color:#d9f2ff;">โทรศัพท์ติดต่อ</span>
+          <a class="phone-number" href="tel:0844562954">084-456-2954</a>
+          <a class="btn" href="tel:0844562954">☎ โทรหาเราตอนนี้</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> น้ำดื่มสะอาด สงวนลิขสิทธิ์</p>
+      <p>เว็บไซต์บริษัทจำหน่ายน้ำดื่ม</p>
+    </div>
+  </footer>
+
+  <a class="floating-call" href="tel:0844562954" aria-label="โทรสั่งซื้อน้ำดื่ม">
+    ☎ โทรสั่งซื้อ
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
